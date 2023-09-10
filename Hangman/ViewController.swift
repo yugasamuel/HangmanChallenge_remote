@@ -153,7 +153,7 @@ class ViewController: UIViewController {
                 buttonsView.addSubview(letterButton)
                 
                 if row == 4 && (col == 0 || col == 1 || col == 4 || col == 5) {
-//                     empty value
+                    // empty value
                 } else {
                     letterButtons.append(letterButton)
                 }
@@ -212,7 +212,7 @@ class ViewController: UIViewController {
             alertTitle = "You nailed it!"
             score+=1
         } else {
-            alertTitle = "Better luck next time!"
+            alertTitle = "The answer is \(answer ?? "")"
         }
             
         let ac = UIAlertController(title: alertTitle, message: "Would you like to play again?", preferredStyle: .alert)

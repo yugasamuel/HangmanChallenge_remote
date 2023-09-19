@@ -186,10 +186,19 @@ class ViewController: UIViewController {
     @objc func letterTapped(_ sender: UIButton) {
         guard let buttonLetter = sender.titleLabel?.text else { return }
         
+        UIView.animate(withDuration: 0.5, delay: 0) {
+            sender.alpha = 0
+        }
+        
         if answer.contains(buttonLetter) {
             for answer in answerLetters {
                 if answer.letter == buttonLetter {
                     answer.label.text = buttonLetter
+                    
+                    answer.label.alpha = 0
+                    UIView.animate(withDuration: 0.5, delay: 0) {
+                        answer.label.alpha = 1
+                    }
                 }
             }
             
@@ -202,7 +211,6 @@ class ViewController: UIViewController {
                 showAlert(isWin: false)
             }
         }
-        sender.isHidden = true
     }
     
     func showAlert(isWin: Bool) {
@@ -234,8 +242,11 @@ class ViewController: UIViewController {
         
         loadRound()
         
-        for btn in letterButtons {
-            btn.isHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0) {
+            for btn in self.letterButtons {
+                btn.alpha = 1
+            }
         }
+        
     }
 }

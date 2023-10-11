@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // init first round
         incorrectCount = 0
         loadRound()
     }
